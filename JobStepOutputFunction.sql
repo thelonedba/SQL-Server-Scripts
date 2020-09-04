@@ -39,6 +39,7 @@ BEGIN
                 FROM msdb.dbo.sysjobhistory
                 WHERE msdb.dbo.agent_datetime(run_date, run_time) > @StartDateTime
                       AND job_id = @job_id
+		      AND step_id = 0
             );
 
     DECLARE @results NVARCHAR(MAX) = N'';
